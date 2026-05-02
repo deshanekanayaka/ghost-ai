@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme inline {
+  /* Project tokens */
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-subtle: var(--bg-subtle);
+
+  --color-border-default: var(--border-default);
+  --color-border-subtle: var(--border-subtle);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-primary-dim: var(--accent-primary-dim);
+  --color-accent-ai: var(--accent-ai);
+  --color-accent-ai-text: var(--accent-ai-text);
+
+  --color-state-error: var(--state-error);
+  --color-state-success: var(--state-success);
+  --color-state-warning: var(--state-warning);
+
+  /* shadcn/ui semantic tokens — all mapped to the project's dark palette */
+  --color-background: var(--bg-base);
+  --color-foreground: var(--text-primary);
+  --color-card: var(--bg-surface);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--bg-elevated);
+  --color-popover-foreground: var(--text-primary);
+  --color-primary: var(--accent-primary);
+  --color-primary-foreground: #080809;
+  --color-secondary: var(--bg-subtle);
+  --color-secondary-foreground: var(--text-secondary);
+  --color-muted: var(--bg-elevated);
+  --color-muted-foreground: var(--text-muted);
+  --color-accent: var(--accent-primary-dim);
+  --color-accent-foreground: var(--accent-primary);
+  --color-destructive: var(--state-error);
+  --color-border: var(--border-default);
+  --color-input: var(--bg-elevated);
+  --color-ring: var(--accent-primary);
+
+  --color-sidebar: var(--bg-surface);
+  --color-sidebar-foreground: var(--text-primary);
+  --color-sidebar-primary: var(--accent-primary);
+  --color-sidebar-primary-foreground: #080809;
+  --color-sidebar-accent: var(--accent-primary-dim);
+  --color-sidebar-accent-foreground: var(--accent-primary);
+  --color-sidebar-border: var(--border-default);
+  --color-sidebar-ring: var(--accent-primary);
+
+  --color-chart-1: var(--accent-primary);
+  --color-chart-2: var(--accent-ai);
+  --color-chart-3: var(--state-success);
+  --color-chart-4: var(--state-warning);
+  --color-chart-5: var(--state-error);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --font-heading: var(--font-geist-sans);
+  --font-sans: var(--font-geist-sans);
+}
+
+:root {
+  /* Project dark theme tokens */
+  --bg-base: #080809;
+  --bg-surface: #111114;
+  --bg-elevated: #18181c;
+  --bg-subtle: #1e1e23;
+
+  --border-default: #2a2a30;
+  --border-subtle: #3a3a42;
+
+  --text-primary: #f0f0f4;
+  --text-secondary: #c0c0cc;
+  --text-muted: #808090;
+  --text-faint: #505060;
+
+  --accent-primary: #00c8d4;
+  --accent-primary-dim: rgba(0, 200, 212, 0.12);
+  --accent-ai: #6457f9;
+  --accent-ai-text: #8b82ff;
+
+  --state-error: #ff4d4f;
+  --state-success: #34d399;
+  --state-warning: #fbbf24;
+
+  /* shadcn/ui semantic variables — dark values as the permanent default */
+  --background: #080809;
+  --foreground: #f0f0f4;
+  --card: #111114;
+  --card-foreground: #f0f0f4;
+  --popover: #18181c;
+  --popover-foreground: #f0f0f4;
+  --primary: #00c8d4;
+  --primary-foreground: #080809;
+  --secondary: #1e1e23;
+  --secondary-foreground: #c0c0cc;
+  --muted: #18181c;
+  --muted-foreground: #808090;
+  --accent: rgba(0, 200, 212, 0.12);
+  --accent-foreground: #00c8d4;
+  --destructive: #ff4d4f;
+  --border: #2a2a30;
+  --input: #18181c;
+  --ring: #00c8d4;
+  --radius: 0.75rem;
+
+  --sidebar: #111114;
+  --sidebar-foreground: #f0f0f4;
+  --sidebar-primary: #00c8d4;
+  --sidebar-primary-foreground: #080809;
+  --sidebar-accent: rgba(0, 200, 212, 0.12);
+  --sidebar-accent-foreground: #00c8d4;
+  --sidebar-border: #2a2a30;
+  --sidebar-ring: #00c8d4;
+
+  --chart-1: #00c8d4;
+  --chart-2: #6457f9;
+  --chart-3: #34d399;
+  --chart-4: #fbbf24;
+  --chart-5: #ff4d4f;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-geist-sans), sans-serif;
+  }
+  html {
+    @apply font-sans;
+  }
+}
