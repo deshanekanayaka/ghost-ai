@@ -74,7 +74,7 @@ export function ProjectDialogs() {
             <Button variant="ghost" size="sm" onClick={closeDialog}>
               Cancel
             </Button>
-            <Button size="sm" disabled={!createName.trim() || isLoading}>
+            <Button size="sm" disabled={!createName.trim() || isLoading} onClick={closeDialog}>
               Create
             </Button>
           </div>
