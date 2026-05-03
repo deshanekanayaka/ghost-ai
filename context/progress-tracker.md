@@ -4,11 +4,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Authentication
+- Database
 
 ## Current Goal
 
-- Wire Clerk auth into the Next.js app: provider, auth pages, redirects, route protection, and user menu.
+- Prisma schema, client singleton, and first migration applied.
 
 ## Completed
 
@@ -16,6 +16,7 @@ Update this file whenever the current phase, active feature, or implementation s
 - `02-editor`: Created `components/editor/editor-navbar.tsx` — fixed top bar (h-12, z-40) with left/center/right sections; sidebar toggle uses `PanelLeftOpen`/`PanelLeftClose` based on `isSidebarOpen` prop. Created `components/editor/project-sidebar.tsx` — fixed full-height floating overlay (z-50, w-72) that slides in from the left via `translate-x`; accepts `isOpen`/`onClose` props; "Projects" header with close button; shadcn Tabs ("My Projects" / "Shared") with empty placeholder states; full-width "New Project" button at bottom. Dialog pattern is ready for future use via the existing shadcn Dialog component and project color tokens.
 - `03-auth`: Wired Clerk into the app. `ClerkProvider` in root layout uses `dark` theme from `@clerk/ui/themes` with CSS variable overrides (no hardcoded colors). `proxy.ts` at project root uses `clerkMiddleware` to protect all routes except `/sign-in` and `/sign-up`. Root page redirects authenticated users to `/editor` and unauthenticated to `/sign-in`. Sign-in and sign-up pages use a two-panel layout (logo/tagline left, Clerk form right; form-only on small screens). `UserButton` added to editor navbar right section. Editor layout marked `force-dynamic` to prevent static prerendering of auth-gated routes. `npm run build` passes.
 - `04-project-dialogs`: Editor home screen with heading, description, and New Project button. `useProjectDialogs` hook + `ProjectDialogContext` in `hooks/use-project-dialogs.ts`. Create (name + live slug preview), Rename (prefilled, auto-focus, Enter submits), and Delete (destructive confirm) dialogs in `components/editor/project-dialogs.tsx`. `ProjectSidebar` updated with mock project items, hover-reveal rename/delete actions for owned projects only, mobile backdrop scrim. `EditorShell` provides context and renders dialogs. Mock data in `types/project.ts`.
+- `05-prisma`: `Project` and `ProjectCollaborator` models in `prisma/models/project.prisma`. `lib/prisma.ts` exports a cached `PrismaClient` singleton using `@prisma/adapter-pg` (branches on `prisma+postgres://` for future Accelerate support). Migration `20260503211948_init_project_models` applied. Client generated to `app/generated/prisma/`. TypeScript passes; the pre-existing `/_global-error` prerender failure (Clerk/Next.js 16) is unrelated.
 
 ## In Progress
 
@@ -23,7 +24,7 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Next Up
 
-- Canvas page shell: lay out the full-viewport canvas area inside the editor route.
+- API routes: project CRUD endpoints using the Prisma client.
 
 ## Open Questions
 
