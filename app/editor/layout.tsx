@@ -1,5 +1,7 @@
 import { EditorShell } from "@/components/editor/editor-shell"
 
+export const dynamic = 'force-dynamic'
+
 /**
  * Wraps the provided children with the EditorShell layout for editor routes.
  *
