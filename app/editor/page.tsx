@@ -1,12 +1,27 @@
-/**
- * Renders a full-height, centered placeholder that displays the message "Canvas coming soon".
- *
- * @returns The JSX element for the placeholder editor page.
- */
+"use client"
+
+import { Plus } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { useProjectDialogContext } from "@/hooks/use-project-dialogs"
+
 export default function EditorPage() {
+  const { openCreate } = useProjectDialogContext()
+
   return (
-    <div className="h-full flex items-center justify-center">
-      <p className="text-sm text-text-faint">Canvas coming soon</p>
+    <div className="h-full flex flex-col items-center justify-center gap-4">
+      <div className="flex flex-col items-center gap-2 text-center">
+        <h1 className="text-lg font-medium text-text-primary">
+          Create a project or open an existing one
+        </h1>
+        <p className="text-sm text-text-muted max-w-sm">
+          Start a new architecture workspace, or choose a project from the
+          sidebar.
+        </p>
+      </div>
+      <Button onClick={openCreate} className="gap-2">
+        <Plus className="h-4 w-4" />
+        New Project
+      </Button>
     </div>
   )
 }
